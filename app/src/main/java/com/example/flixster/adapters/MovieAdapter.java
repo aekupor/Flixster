@@ -18,18 +18,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
 import com.example.flixster.R;
 import com.example.flixster.models.Movie;
 
-import java.lang.annotation.Target;
 import java.util.List;
 
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
-
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
-
-    public static final String MOVIE_PLACEHOLDER = "https://courses.codepath.org/course_files/android_university_fast_track/assets/flicks_movie_placeholder.gif";
-    public static final String BACKDROP_PLACEHOLDER = "https://courses.codepath.org/course_files/android_university_fast_track/assets/flicks_backdrop_placeholder.gif";
 
     Context context;
     List<Movie> movies;
@@ -83,31 +78,33 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
 
             //use glide to render images
             String imageUrl;
-            String placeholderUrl;
+            int placeholderUrl;
             //if phone is in landscape, then imageURL = backdrop image
             if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 imageUrl = movie.getBackdropPath();
-                placeholderUrl = MOVIE_PLACEHOLDER;
+                placeholderUrl = R.drawable.flicks_movie_placeholder;
             } else {
                 //else imageURL = poster image
                 imageUrl = movie.getPosterPath();
-                placeholderUrl = BACKDROP_PLACEHOLDER;
+                placeholderUrl = R.drawable.flicks_backdrop_placeholder;
             }
 
             Glide.with(context)
                     .load(imageUrl)
                     //have default placeholder image while loading
-                    .placeholder(Drawable.createFromPath(placeholderUrl))
-                    .error(Drawable.createFromPath(placeholderUrl))
+                    .placeholder(placeholderUrl)
+                    .error(placeholderUrl)
+
+                    //if error occurs
                     .listener(new RequestListener<Drawable>() {
                         @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, com.bumptech.glide.request.target.Target<Drawable> target, boolean isFirstResource) {
+                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                             Log.e("TAG", "Error loading image", e);
                             return false; //return false so the error placeholder can be placed
                         }
 
                         @Override
-                        public boolean onResourceReady(Drawable resource, Object model, com.bumptech.glide.request.target.Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                             return false;
                         }
                     })
