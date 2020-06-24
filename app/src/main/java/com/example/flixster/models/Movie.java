@@ -14,6 +14,7 @@ public class Movie {
     String title;
     String overview;
     String backdropPath;
+    Double voteAverage;
 
     // no-arg, empty constructor required for Parceler
     public Movie() {}
@@ -23,6 +24,7 @@ public class Movie {
         overview = movie.getString("overview");
         posterPath = movie.getString("poster_path");
         backdropPath = movie.getString("backdrop_path");
+        voteAverage = movie.getDouble("vote_average");
     }
 
     public static List<Movie> fromJsonArray(JSONArray movieJsonArray) throws JSONException {
@@ -47,5 +49,9 @@ public class Movie {
 
     public String getBackdropPath() {
         return String.format("https://image.tmdb.org/t/p/w342/%s", backdropPath);
+    }
+
+    public Double getVoteAverage() {
+        return voteAverage;
     }
 }
