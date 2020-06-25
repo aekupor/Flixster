@@ -27,6 +27,7 @@ import com.example.flixster.models.Movie;
 import org.parceler.Parcels;
 
 import java.util.List;
+import java.util.Random;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -126,6 +127,13 @@ public class MovieDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "more button clicked");
+                // create intent for the new activity
+                Intent intent = new Intent(MovieDetailsActivity.this, MovieDetailsActivity.class);
+                // serialize the movie using parceler
+                intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(otherMovie));
+                intent.putExtra("OTHER_MOVIE", Parcels.wrap(movie));
+                // show the activity
+                startActivityForResult(intent, TRAILER_CODE);
             }
         });
     }
