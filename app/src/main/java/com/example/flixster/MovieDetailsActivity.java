@@ -20,6 +20,7 @@ import org.parceler.Parcels;
 public class MovieDetailsActivity extends AppCompatActivity {
     public static final String KEY_ITEM_ID = "movie_id";
     public static final int TRAILER_CODE = 20;
+    public static final String TAG = "MovieAdapter";
 
     Movie movie;
     TextView tvTitle;
@@ -43,7 +44,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
-        Log.d("MovieDetailsActivity", String.format("Showing details for '%s'", movie.getTitle()));
+        Log.d(TAG, String.format("Showing details for '%s'", movie.getTitle()));
 
         // set the title and overview
         tvTitle.setText(movie.getTitle());
@@ -57,7 +58,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         vidBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("MovieDetailsActivity", "button clicked for movie: " + movie.getId());
+                Log.d(TAG, "button clicked for movie: " + movie.getId());
                 Intent i = new Intent(MovieDetailsActivity.this, MovieTrailerActivity.class);
                 i.putExtra(KEY_ITEM_ID, movie.getId());
                 startActivityForResult(i, TRAILER_CODE);
@@ -68,7 +69,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         txBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("MovieDetailsActivity", "buy tickets button clicked");
+                Log.d(TAG, "buy tickets button clicked");
                 WebView myWebView = (WebView) findViewById(R.id.webview);
                 myWebView.loadUrl("http://www.fandango.com");
             }
