@@ -15,6 +15,7 @@ import com.example.flixster.models.Movie;
 import org.parceler.Parcels;
 
 public class MovieDetailsActivity extends AppCompatActivity {
+    public static final String KEY_ITEM_ID = "movie_id";
     public static final int TRAILER_CODE = 20;
 
     Movie movie;
@@ -46,12 +47,13 @@ public class MovieDetailsActivity extends AppCompatActivity {
         float voteAverage = movie.getVoteAverage().floatValue();
         rbVoteAverage.setRating(voteAverage = voteAverage > 0 ? voteAverage / 2.0f : voteAverage);
 
+        //when vidBtn is clicked, send to MovieTrailerActivity with id of movie
         vidBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d("MovieDetailsActivity", "button clicked");
                 Intent i = new Intent(MovieDetailsActivity.this, MovieTrailerActivity.class);
-                i.putExtra("movie id", movie.getId());
+                i.putExtra(KEY_ITEM_ID, movie.getId());
                 startActivityForResult(i, TRAILER_CODE);
             }
         });
