@@ -47,6 +47,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView otherOverview;
     RatingBar otherRbVoteAverage;
     ImageView otherImage;
+    Button moreBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         otherOverview = binding.otherOverview;
         otherRbVoteAverage = binding.otherRbVoteAverage;
         otherImage = binding.otherImage;
+        moreBtn = binding.moreBtn;
 
         // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
@@ -116,6 +118,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 Log.d(TAG, "buy tickets button clicked");
                 WebView myWebView = (WebView) findViewById(R.id.webview);
                 myWebView.loadUrl("http://www.fandango.com");
+            }
+        });
+
+        //when moreBtn is clicked, send to MovieDetailsActivity with new movie
+        moreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "more button clicked");
             }
         });
     }
