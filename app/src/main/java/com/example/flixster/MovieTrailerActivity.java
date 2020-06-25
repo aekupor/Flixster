@@ -17,13 +17,14 @@ import org.json.JSONObject;
 
 public class MovieTrailerActivity extends YouTubeBaseActivity {
 
-    public final String MOVIE_URL = "https://api.themoviedb.org/3/movie/tKodtNFpzBA/videos?api_key=" + getString(R.string.youtube_api_key) + "&language=en-US";
+//    public final String MOVIE_URL = "https://api.themoviedb.org/3/movie/tKodtNFpzBA/videos?api_key=" + getString(R.string.youtube_api_key) + "&language=en-US";
 
     // temporary test video id -- TODO replace with movie trailer video id (also in MOVIE_URL)
     final String videoId = "tKodtNFpzBA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("MovieTrailerActivity", "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_trailer);
 
