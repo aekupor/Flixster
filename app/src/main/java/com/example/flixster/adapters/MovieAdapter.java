@@ -32,6 +32,8 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
 
+    public static final String TAG = "MovieAdapter";
+
     Context context;
     List<Movie> movies;
 
@@ -44,7 +46,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d("MovieAdapter", "onCreateViewHolder");
+        Log.d(TAG, "onCreateViewHolder");
         View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
         return new ViewHolder(movieView);
     }
@@ -52,7 +54,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     //populating data into the item through holder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d("MovieAdapter", "onBindViewHolder" + position);
+        Log.d(TAG, "onBindViewHolder" + position);
         //get the movie at the passed in position
         Movie movie = movies.get(position);
         //bind the movie data into the VH
@@ -127,7 +129,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                     .listener(new RequestListener<Drawable>() {
                         @Override
                         public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            Log.e("TAG", "Error loading image", e);
+                            Log.e(TAG, "Error loading image", e);
                             return false; //return false so the error placeholder can be placed
                         }
 
