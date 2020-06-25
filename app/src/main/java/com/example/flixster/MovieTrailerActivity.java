@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
+import com.example.flixster.databinding.ActivityMainBinding;
+import com.example.flixster.databinding.ActivityMovieDetailsBinding;
+import com.example.flixster.databinding.ActivityMovieTrailerBinding;
 import com.example.flixster.models.Movie;
 import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
@@ -24,7 +28,9 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("MovieTrailerActivity", "onCreate");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_trailer);
+        ActivityMovieTrailerBinding binding = ActivityMovieTrailerBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
 
         // resolve the player view from the layout
         final YouTubePlayerView playerView = (YouTubePlayerView) findViewById(R.id.player);
