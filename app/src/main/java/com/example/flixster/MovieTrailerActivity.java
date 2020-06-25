@@ -25,7 +25,7 @@ import okhttp3.Headers;
 
 public class MovieTrailerActivity extends YouTubeBaseActivity {
 
-    public static final String TAG = "MovieAdapter";
+    public static final String TAG = "MovieTrailerActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

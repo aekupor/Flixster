@@ -33,9 +33,10 @@ import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 public class MovieDetailsActivity extends AppCompatActivity {
     public static final String KEY_ITEM_ID = "movie_id";
     public static final int TRAILER_CODE = 20;
-    public static final String TAG = "MovieAdapter";
+    public static final String TAG = "MovieDetailsActivity";
 
     Movie movie;
+    Movie otherMovie;
     TextView tvTitle;
     TextView tvOverview;
     RatingBar rbVoteAverage;
@@ -68,6 +69,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
         // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
         Log.d(TAG, String.format("Showing details for '%s'", movie.getTitle()));
+
+        otherMovie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra("OTHER_MOVIE"));
+        Log.d(TAG, String.format("Showing details for recommended movie: '%s'", otherMovie.getTitle()));
 
         // set the title and overview
         tvTitle.setText(movie.getTitle());
