@@ -24,7 +24,9 @@ The following **stretch** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [x] List anything else that you can get done to improve the app functionality!
+  *  Added "view trailer" button from the "more details" page for users to easily view the trailer once they are looking at more details of movie.
+  *  Added "buy tickets" button from the "more details" page for users to be redirected to Fandango to buy tickets by using WebView.
 
 ## Video Walkthrough
 
