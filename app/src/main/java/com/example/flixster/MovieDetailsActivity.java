@@ -42,6 +42,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
     Button vidBtn;
     Button txBtn;
     ImageView bckImage;
+    TextView otherTitle;
+    TextView otherOverview;
+    RatingBar otherRbVoteAverage;
+    ImageView otherImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +60,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
         vidBtn = binding.vidBtn;
         txBtn = binding.txBtn;
         bckImage = binding.backImg;
+        otherTitle = binding.otherTitle;
+        otherOverview = binding.otherOverview;
+        otherRbVoteAverage = binding.otherRbVoteAverage;
+        otherImage = binding.otherImage;
 
         // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
