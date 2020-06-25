@@ -24,9 +24,12 @@ import org.json.JSONObject;
 import okhttp3.Headers;
 
 public class MovieTrailerActivity extends YouTubeBaseActivity {
+
+    public static final String TAG = "MovieAdapter";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("MovieTrailerActivity", "onCreate");
+        Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         ActivityMovieTrailerBinding binding = ActivityMovieTrailerBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -36,7 +39,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
         final YouTubePlayerView playerView = (YouTubePlayerView) findViewById(R.id.player);
 
         final int id = getIntent().getIntExtra(MovieDetailsActivity.KEY_ITEM_ID, 0);
-        Log.d("MovieTrailerActivity", "movie id: " + id);
+        Log.d(TAG, "movie id: " + id);
 
         String MOVIE_URL = "https://api.themoviedb.org/3/movie/" + id +"/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
@@ -48,7 +51,7 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
                 JSONObject jsonObject = json.jsonObject;
                 try {
                     JSONArray results = jsonObject.getJSONArray("results");
-                    Log.i("MovieTrailerActivity", "Results: " + results.toString());
+                    Log.i(TAG, "Results: " + results.toString());
                     JSONObject movie = results.getJSONObject(0);
                     final String movie_id = movie.getString("key");
 
@@ -57,25 +60,25 @@ public class MovieTrailerActivity extends YouTubeBaseActivity {
                         @Override
                         public void onInitializationSuccess(YouTubePlayer.Provider provider,
                                                             YouTubePlayer youTubePlayer, boolean b) {
-                            Log.d("MovieTrailerActivity", "onSuccess with movie_id: " + movie_id);
+                            Log.d(TAG, "onSuccess with movie_id: " + movie_id);
                             youTubePlayer.cueVideo(movie_id);
                         }
 
                         @Override
                         public void onInitializationFailure(YouTubePlayer.Provider provider,
                                                             YouTubeInitializationResult youTubeInitializationResult) {
-                            Log.e("MovieTrailerActivity", "Error initializing YouTube player");
+                            Log.e(TAG, "Error initializing YouTube player");
                         }
                     });
 
                 } catch (JSONException e) {
-                    Log.e("MovieTrailerActivity", "Hit json exception", e);
+                    Log.e(TAG, "Hit json exception", e);
                 }
             }
 
             @Override
             public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-                Log.d("MovieTrailerActivity", "onFailure");
+                Log.d(TAG, "onFailure");
             }
         });
     }
