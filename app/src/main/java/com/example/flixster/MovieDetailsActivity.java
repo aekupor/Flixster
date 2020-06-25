@@ -86,6 +86,18 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 .load(imageUrl)
                 .into(bckImage);
 
+        // set info for recommended movie
+        otherTitle.setText(otherMovie.getTitle());
+        tvOverview.setText(otherMovie.getOverview());
+
+        float otherVoteAverage = otherMovie.getVoteAverage().floatValue();
+        otherRbVoteAverage.setRating(otherVoteAverage = otherVoteAverage > 0 ? otherVoteAverage / 2.0f : otherVoteAverage);
+
+        String otherImageUrl = otherMovie.getBackdropPath();
+        Glide.with(this)
+                .load(otherImageUrl)
+                .into(otherImage);
+
         //when vidBtn is clicked, send to MovieTrailerActivity with id of movie
         vidBtn.setOnClickListener(new View.OnClickListener() {
             @Override
