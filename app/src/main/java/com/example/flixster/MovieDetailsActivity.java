@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -66,8 +67,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("MovieDetailsActivity", "buy tickets button clicked");
-                Intent i = new Intent(MovieDetailsActivity.this, MovieTicketActivity.class);
-                startActivityForResult(i, TICKET_CODE);
+                WebView myWebView = (WebView) findViewById(R.id.webview);
+                myWebView.loadUrl("http://www.fandango.com");
             }
         });
     }

@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MovieTicketActivity"></activity>
         <activity android:name=".MovieTrailerActivity" />
         <activity android:name=".MovieDetailsActivity" />
         <activity android:name=".MainActivity">
