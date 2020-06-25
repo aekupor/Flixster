@@ -17,6 +17,7 @@ import org.parceler.Parcels;
 public class MovieDetailsActivity extends AppCompatActivity {
     public static final String KEY_ITEM_ID = "movie_id";
     public static final int TRAILER_CODE = 20;
+    public static final int TICKET_CODE = 10;
 
     Movie movie;
 
@@ -65,6 +66,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d("MovieDetailsActivity", "buy tickets button clicked");
+                Intent i = new Intent(MovieDetailsActivity.this, MovieTicketActivity.class);
+                startActivityForResult(i, TICKET_CODE);
             }
         });
     }
