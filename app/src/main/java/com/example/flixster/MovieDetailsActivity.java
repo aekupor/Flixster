@@ -24,6 +24,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView tvOverview;
     RatingBar rbVoteAverage;
     Button vidBtn;
+    Button txBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvOverview = (TextView) findViewById(R.id.tvOverview);
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
         vidBtn = findViewById(R.id.vidBtn);
+        txBtn = findViewById(R.id.txBtn);
 
         // unwrap the movie passed in via intent, using its simple name as a key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
@@ -55,6 +57,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 Intent i = new Intent(MovieDetailsActivity.this, MovieTrailerActivity.class);
                 i.putExtra(KEY_ITEM_ID, movie.getId());
                 startActivityForResult(i, TRAILER_CODE);
+            }
+        });
+
+        //when txBtn is clicked, send to WebView to display fandango
+        txBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("MovieDetailsActivity", "buy tickets button clicked");
             }
         });
     }
