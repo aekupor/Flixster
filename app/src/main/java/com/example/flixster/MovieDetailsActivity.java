@@ -88,12 +88,12 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         // set info for recommended movie
         otherTitle.setText(otherMovie.getTitle());
-        tvOverview.setText(otherMovie.getOverview());
+        otherOverview.setText(otherMovie.getOverview());
 
         float otherVoteAverage = otherMovie.getVoteAverage().floatValue();
         otherRbVoteAverage.setRating(otherVoteAverage = otherVoteAverage > 0 ? otherVoteAverage / 2.0f : otherVoteAverage);
 
-        String otherImageUrl = otherMovie.getBackdropPath();
+        String otherImageUrl = otherMovie.getPosterPath();
         Glide.with(this)
                 .load(otherImageUrl)
                 .into(otherImage);
