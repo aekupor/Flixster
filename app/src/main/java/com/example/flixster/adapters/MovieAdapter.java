@@ -27,6 +27,7 @@ import com.example.flixster.models.Movie;
 import org.parceler.Parcels;
 
 import java.util.List;
+import java.util.Random;
 
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
@@ -90,10 +91,17 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
             if (position != RecyclerView.NO_POSITION) {
                 // get the movie at the position, this won't work if the class is static
                 Movie movie = movies.get(position);
+
+                //get other reccomended movie by choosing at random
+                final int random = new Random().nextInt(movies.size() - 1);
+                Movie otherMovie = movies.get(random);
+                Log.d(TAG, "other movie got: " + otherMovie.getTitle());
+
                 // create intent for the new activity
                 Intent intent = new Intent(context, MovieDetailsActivity.class);
                 // serialize the movie using parceler, use its short name as a key
                 intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
+                intent.putExtra("OTHER_MOVIE", Parcels.wrap(otherMovie));
                 // show the activity
                 context.startActivity(intent);
             }
