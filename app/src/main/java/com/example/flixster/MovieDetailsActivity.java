@@ -51,7 +51,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         vidBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("MovieDetailsActivity", "button clicked");
+                Log.d("MovieDetailsActivity", "button clicked for movie: " + movie.getId());
                 Intent i = new Intent(MovieDetailsActivity.this, MovieTrailerActivity.class);
                 i.putExtra(KEY_ITEM_ID, movie.getId());
                 startActivityForResult(i, TRAILER_CODE);

@@ -15,7 +15,7 @@ public class Movie {
     String overview;
     String backdropPath;
     Double voteAverage;
-    Integer id;
+    int id;
 
     // no-arg, empty constructor required for Parceler
     public Movie() {}
@@ -57,7 +57,7 @@ public class Movie {
         return voteAverage;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 }
