@@ -7,13 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.flixster.adapters.NoteAdapter;
-import com.example.flixster.databinding.ActivityMovieDetailsBinding;
 import com.example.flixster.databinding.ActivityMovieNotesBinding;
 
 import java.io.File;
@@ -56,7 +54,7 @@ public class MovieNotesActivity extends AppCompatActivity {
                 saveItems();
             }
         };
-        
+
         noteAdapter = new NoteAdapter(items, onLongClickListener);
         rvItems.setAdapter(noteAdapter);
         rvItems.setLayoutManager(new LinearLayoutManager(this));
