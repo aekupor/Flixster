@@ -6,150 +6,164 @@
     android:layout_height="match_parent"
     tools:context=".MovieDetailsActivity">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="205dp"
-        android:layout_marginEnd="-1dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="39dp"
-        tools:text="Bloodshot" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp">
 
-    <Button
-        android:id="@+id/txBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvOverview"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="5dp"
-        android:text="Buy Tickets" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/vidBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvOverview"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="-2dp"
-        android:text="Watch Trailer" />
+            <ImageView
+                android:id="@+id/backImg"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tvOverview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rbVoteAverage"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="5dp"
-        tools:text="After he and his wife are murdered, marine Ray Garrison is resurrected by a team of scientists. Enhanced with nanotechnology, he becomes a superhuman, biotech killing machine—'Bloodshot'. As Ray first trains with fellow super-soldiers, he cannot recall anything from his former life. But when his memories flood back and he remembers the man that killed both him and his wife, he breaks out of the facility to get revenge, only to discover that there's more to the conspiracy than he thought." />
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="-1dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_editor_absoluteX="39dp"
+                tools:text="Bloodshot" />
 
-    <RatingBar
-        android:id="@+id/rbVoteAverage"
-        style="@style/Widget.AppCompat.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTitle"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="5dp"
-        android:numStars="5"
-        android:stepSize=".5" />
+            <RatingBar
+                android:id="@+id/rbVoteAverage"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="5dp"
+                android:numStars="5"
+                android:stepSize=".5" />
 
-    <RatingBar
-        android:id="@+id/otherRbVoteAverage"
-        style="@style/Widget.AppCompat.RatingBar.Small"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/otherTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="-7dp"
-        android:layout_toEndOf="@+id/otherImage"
-        android:numStars="5"
-        android:stepSize=".5" />
+            <TextView
+                android:id="@+id/tvOverview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="5dp"
+                tools:text="After he and his wife are murdered, marine Ray Garrison is resurrected by a team of scientists. Enhanced with nanotechnology, he becomes a superhuman, biotech killing machine—'Bloodshot'. As Ray first trains with fellow super-soldiers, he cannot recall anything from his former life. But when his memories flood back and he remembers the man that killed both him and his wife, he breaks out of the facility to get revenge, only to discover that there's more to the conspiracy than he thought." />
 
-    <WebView
-        android:id="@+id/webview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="-2dp" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/backImg"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerHorizontal="true"
-        tools:srcCompat="@tools:sample/avatars" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
 
-    <TextView
-        android:id="@+id/otherMovie"
-        android:layout_width="wrap_content"
-        android:layout_height="27dp"
-        android:layout_below="@+id/txBtn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="230dp"
-        android:text="If you like this movie, you may also like:" />
+                    <Button
+                        android:id="@+id/txBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Buy Tickets" />
 
-    <ImageView
-        android:id="@+id/otherImage"
-        android:layout_width="120dp"
-        android:layout_height="180dp"
-        android:layout_below="@+id/txBtn"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        tools:srcCompat="@tools:sample/avatars" />
+                    <Button
+                        android:id="@+id/vidBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="-2dp"
+                        android:text="Watch Trailer" />
+                </LinearLayout>
+            </ScrollView>
 
-    <TextView
-        android:id="@+id/otherTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="29dp"
-        android:layout_below="@+id/vidBtn"
-        android:layout_alignStart="@+id/otherMovie"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="142dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="2dp"
-        android:textSize="18sp"
-        tools:text="Bloodshot" />
+            <TextView
+                android:id="@+id/otherMovie"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="00dp"
+                android:text="If you like this movie, you may also like:" />
 
-    <TextView
-        android:id="@+id/otherOverview"
-        android:layout_width="wrap_content"
-        android:layout_height="104dp"
-        android:layout_below="@+id/otherRbVoteAverage"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="-1dp"
-        android:layout_marginBottom="49dp"
-        android:layout_toEndOf="@+id/otherImage"
-        tools:text="Other description here" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/moreBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:text="Read More" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <ImageView
+                        android:id="@+id/otherImage"
+                        android:layout_width="120dp"
+                        android:layout_height="180dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="10dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" >
+
+                            <TextView
+                                android:id="@+id/otherTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="29dp"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="2dp"
+                                android:textSize="18sp"
+                                tools:text="Bloodshot" />
+
+                            <RatingBar
+                                android:id="@+id/otherRbVoteAverage"
+                                style="@style/Widget.AppCompat.RatingBar.Small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginTop="5dp"
+                                android:numStars="5"
+                                android:stepSize=".5" />
+
+                            <TextView
+                                android:id="@+id/otherOverview"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="0dp"
+                                android:layout_marginBottom="5dp"
+                                tools:text="Other description here" />
+
+                            <Button
+                                android:id="@+id/moreBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Read More" />
+                        </LinearLayout>
+                    </ScrollView>
+                </LinearLayout>
+            </ScrollView>
+
+            <WebView
+                android:id="@+id/webview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-2dp"
+                android:layout_marginBottom="-2dp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
