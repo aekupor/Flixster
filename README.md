@@ -2,7 +2,7 @@
 
 **Flixster** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## User Stories
 
@@ -17,7 +17,7 @@ The following **required** functionality is completed:
 
 The following **stretch** features are implemented:
 
-* [ ] Improved the user interface by experimenting with styling and coloring.
+* [x] Improved the user interface by experimenting with styling and coloring.
 * [x] Apply rounded corners for the poster or background images using [Glide transformations](https://guides.codepath.org/android/Displaying-Images-with-the-Glide-Library#transformations)
 * [x] Apply the popular [View Binding annotation library](http://guides.codepath.org/android/Reducing-View-Boilerplate-with-ViewBinding) to reduce boilerplate code.
 * [x] Allow video trailers to be played in full-screen using the YouTubePlayerView from the details screen.
@@ -27,6 +27,10 @@ The following **additional** features are implemented:
 * [x] List anything else that you can get done to improve the app functionality!
   *  Added "view trailer" button from the "more details" page for users to easily view the trailer once they are looking at more details of movie.
   *  Added "buy tickets" button from the "more details" page for users to be redirected to Fandango to buy tickets by using WebView.
+  *  Added recommended movie to display from the "more details" page. Created "read more" button to allow users to navigate directly to that recommended movie's "more details" page.
+  *  Added "my notes" button on the main page to take users to new page where users can store the names and their own ratings of movies they have watched. This data persists even once users have closed the app.
+  *  Sort movies on main page from highest to lowest rating.
+  *  Add scroll view on movies detail page so that user can see all content easily.
 
 ## Video Walkthrough
 
@@ -38,7 +42,9 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Describe any challenges encountered while building the app:
+* My notes page was difficult because I had a Note class that contained the title and rating of a movie so I could do simply use the ReadLines/WriteLines function to store the data persistently. I had to be creative on how I stored and read this data from files.
+* I wanted to have the "buy tickets" button link to the Fandango app, but I later discovered that the API was private so I decided to use WebView instead.
 
 ## Open-source libraries used
 
