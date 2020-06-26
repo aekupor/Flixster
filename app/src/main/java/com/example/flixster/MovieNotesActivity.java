@@ -3,7 +3,9 @@ package com.example.flixster;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -11,6 +13,8 @@ import com.example.flixster.databinding.ActivityMovieDetailsBinding;
 import com.example.flixster.databinding.ActivityMovieNotesBinding;
 
 public class MovieNotesActivity extends AppCompatActivity {
+
+    public static final String TAG = "MovieNotesActivity";
 
     EditText addItem;
     Button saveBtn;
@@ -24,5 +28,13 @@ public class MovieNotesActivity extends AppCompatActivity {
 
         addItem = binding.addItem;
         saveBtn = binding.saveBtn;
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String addedItem = addItem.getText().toString();
+                Log.d(TAG, "save button clicked with item: " + addedItem);
+            }
+        });
     }
 }
