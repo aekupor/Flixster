@@ -37,8 +37,8 @@ The following **additional** features are implemented:
 Here's a walkthrough of implemented user stories:
 
 [Portrait Mode](https://imgur.com/204UxDf)
-[Landscape Mode] (https://imgur.com/iAmDWfx)
-[Notes Addition] (https://imgur.com/QzxL4XG)
+[Landscape Mode](https://imgur.com/iAmDWfx)
+[Notes Addition](https://imgur.com/QzxL4XG)
 
 ## Notes
 
