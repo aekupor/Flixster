@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +21,7 @@ import com.facebook.stetho.common.ArrayListAccumulator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String NOW_PLAYING_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
     public static final String TAG = "MainActivity";
+    public static final int NOTE_CODE = 30;
 
     List<Movie> movies;
     Button noteBtn;
@@ -81,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "notes button clicked");
-
+                Intent intent = new Intent(MainActivity.this, MovieNotesActivity.class);
+                startActivityForResult(intent, NOTE_CODE);
             }
         });
     }

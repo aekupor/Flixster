@@ -8,9 +8,14 @@
 
     <TextView
         android:id="@+id/tvHeading"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="0dp"
         android:text="My Movie Notes:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
