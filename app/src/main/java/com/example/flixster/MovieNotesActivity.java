@@ -16,6 +16,9 @@ import com.example.flixster.adapters.NoteAdapter;
 import com.example.flixster.databinding.ActivityMovieDetailsBinding;
 import com.example.flixster.databinding.ActivityMovieNotesBinding;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,11 +41,8 @@ public class MovieNotesActivity extends AppCompatActivity {
         addItem = binding.addItem;
         saveBtn = binding.saveBtn;
         rvItems = binding.rvView;
-        items = new ArrayList<>();
 
-        //temporarily add content
-        items.add("Movie x was really good. Highly recommend.");
-        items.add("Movie y was really bad. Do not like horror movies.");
+        loadItems();
 
         final NoteAdapter noteAdapter = new NoteAdapter(items);
         rvItems.setAdapter(noteAdapter);
@@ -59,7 +59,32 @@ public class MovieNotesActivity extends AppCompatActivity {
                 noteAdapter.notifyItemInserted(items.size() - 1);
                 addItem.setText("");
                 Toast.makeText(getApplicationContext(), "Item was added", Toast.LENGTH_SHORT).show();
+                saveItems();
             }
         });
+    }
+
+    //file to hold items for persistence
+    private File getDataFile() {
+        return new File(getFilesDir(), "data.txt");
+    }
+
+    //load items by reading every line of the data file
+    public void loadItems() {
+        try {
+            items = new ArrayList<>(org.apache.commons.io.FileUtils.readLines(getDataFile(), Charset.defaultCharset()));
+        } catch (IOException e) {
+            Log.e(TAG, "Error reading items", e);
+            items = new ArrayList<>();
+        }
+    }
+
+    //saves items by writing them into the data file
+    public void saveItems() {
+        try {
+            org.apache.commons.io.FileUtils.writeLines(getDataFile(), items);
+        } catch (IOException e) {
+            Log.e(TAG, "Error writing items", e);
+        }
     }
 }

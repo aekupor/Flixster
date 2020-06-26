@@ -50,4 +50,7 @@ dependencies {
     //add parceler
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
+
+    //add commons library for persistence
+    implementation 'commons-io:commons-io:2.6'
 }
