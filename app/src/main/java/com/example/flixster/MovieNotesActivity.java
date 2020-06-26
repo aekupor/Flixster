@@ -1,6 +1,7 @@
 package com.example.flixster;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.flixster.adapters.NoteAdapter;
 import com.example.flixster.databinding.ActivityMovieDetailsBinding;
 import com.example.flixster.databinding.ActivityMovieNotesBinding;
 
@@ -40,6 +42,10 @@ public class MovieNotesActivity extends AppCompatActivity {
         //temporarily add content
         items.add("Movie x was really good. Highly reccomend.");
         items.add("Movie y was really bad. Do not like horror movies.");
+
+        NoteAdapter noteAdapter = new NoteAdapter(items);
+        rvItems.setAdapter(noteAdapter);
+        rvItems.setLayoutManager(new LinearLayoutManager(this));
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
