@@ -87,6 +87,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
         String imageUrl = movie.getBackdropPath();
         Glide.with(this)
                 .load(imageUrl)
+                .placeholder(R.drawable.flicks_backdrop_placeholder)
+                .error(R.drawable.flicks_backdrop_placeholder)
                 .into(bckImage);
 
         // set info for recommended movie
@@ -99,6 +101,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
         String otherImageUrl = otherMovie.getPosterPath();
         Glide.with(this)
                 .load(otherImageUrl)
+                .placeholder(R.drawable.flicks_movie_placeholder)
+                .error(R.drawable.flicks_movie_placeholder)
                 .into(otherImage);
 
         //when vidBtn is clicked, send to MovieTrailerActivity with id of movie
