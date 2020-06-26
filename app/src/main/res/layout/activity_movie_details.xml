@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:foregroundTint="#FFFFFF"
     tools:context=".MovieDetailsActivity">
 
     <ScrollView
@@ -12,12 +13,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp">
+        android:layout_marginTop="0dp"
+        android:background="#050505">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/backImg"
@@ -33,9 +35,14 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="-1dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#FFFFFF"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_editor_absoluteX="39dp"
                 tools:text="Bloodshot" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <RatingBar
                 android:id="@+id/rbVoteAverage"
@@ -53,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="5dp"
+                android:textColor="#FFFFFF"
                 tools:text="After he and his wife are murdered, marine Ray Garrison is resurrected by a team of scientists. Enhanced with nanotechnology, he becomes a superhuman, biotech killing machine—'Bloodshot'. As Ray first trains with fellow super-soldiers, he cannot recall anything from his former life. But when his memories flood back and he remembers the man that killed both him and his wife, he breaks out of the facility to get revenge, only to discover that there's more to the conspiracy than he thought." />
 
             <ScrollView
@@ -61,7 +69,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
 
                     <Button
                         android:id="@+id/txBtn"
@@ -88,7 +96,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="00dp"
-                android:text="If you like this movie, you may also like:" />
+                android:text="If you like this movie, you may also like:"
+                android:textColor="#FFFFFF" />
 
             <ScrollView
                 android:layout_width="match_parent"
@@ -96,7 +105,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         android:id="@+id/otherImage"
@@ -122,6 +131,7 @@
                                 android:layout_marginStart="5dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginEnd="2dp"
+                                android:textColor="#FFFFFF"
                                 android:textSize="18sp"
                                 tools:text="Bloodshot" />
 
@@ -144,6 +154,7 @@
                                 android:layout_marginTop="5dp"
                                 android:layout_marginEnd="0dp"
                                 android:layout_marginBottom="5dp"
+                                android:textColor="#FFFFFF"
                                 tools:text="Other description here" />
 
                             <Button
