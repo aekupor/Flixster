@@ -23,8 +23,6 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.apache.commons.io.FileUtils.readLines;
-
 public class MovieNotesActivity extends AppCompatActivity {
 
     public static final String TAG = "MovieNotesActivity";
@@ -49,7 +47,7 @@ public class MovieNotesActivity extends AppCompatActivity {
         rvItems = binding.rvView;
 
         items = new ArrayList<Note>();
-       //loadItems();
+        loadItems();
 
         NoteAdapter.OnLongClickListener onLongClickListener = new NoteAdapter.OnLongClickListener() {
             @Override
@@ -59,7 +57,7 @@ public class MovieNotesActivity extends AppCompatActivity {
                 //notify the adapter
                 noteAdapter.notifyItemRemoved(position);
                 Toast.makeText(getApplicationContext(), "Item was removed", Toast.LENGTH_SHORT).show();
-              //  saveItems();
+                saveItems();
             }
         };
 
@@ -82,32 +80,48 @@ public class MovieNotesActivity extends AppCompatActivity {
                 addItem.setText("");
                 addTitle.setText("");
                 Toast.makeText(getApplicationContext(), "Item was added", Toast.LENGTH_SHORT).show();
-              //  saveItems();
+                saveItems();
             }
         });
     }
 
-    //file to hold items for persistence
-    private File getDataFile() {
-        return new File(getFilesDir(), "data.txt");
+    //files to hold items for persistence
+    private File getTitleFile() {
+        return new File(getFilesDir(), "title.txt");
     }
 
-    //load items by reading every line of the data file
-  // public void loadItems() {
-     //  try {
-         // items = new ArrayList<Note>(readLines(getDataFile(), Charset.defaultCharset()));
-   //     } catch (IOException e) {
-   //         Log.e(TAG, "Error reading items", e);
-   //         items = new ArrayList<>();
-   //     }
-  // }
+    private File getRatingFile() {
+        return new File(getFilesDir(), "rating.txt");
+    }
 
-    //saves items by writing them into the data file
-  //  public void saveItems() {
-   //     try {
-   //         org.apache.commons.io.FileUtils.writeLines(getDataFile(), items);
-   //     } catch (IOException e) {
-   //         Log.e(TAG, "Error writing items", e);
-   //     }
-   // }
+    //load items by reading every line of the data files
+     public void loadItems() {
+        try {
+            ArrayList<String> titles = (ArrayList<String>) FileUtils.readLines(getTitleFile(), Charset.defaultCharset());
+            ArrayList<String> ratings = (ArrayList<String>) FileUtils.readLines(getRatingFile(), Charset.defaultCharset());
+            for (int i = 0; i < titles.size(); i++) {
+                items.add(new Note(ratings.get(i), titles.get(i)));
+            }
+        } catch (IOException e) {
+            Log.e(TAG, "Error reading items", e);
+            items = new ArrayList<>();
+        }
+     }
+
+    //saves items by writing them into the data files
+    public void saveItems() {
+       try {
+           ArrayList<String> ratings = new ArrayList<>();
+           ArrayList<String> titles = new ArrayList<>();
+
+           for (Note item: items) {
+               ratings.add(item.getRating());
+               titles.add(item.getTitle());
+           }
+           FileUtils.writeLines(getRatingFile(), ratings);
+           FileUtils.writeLines(getTitleFile(), titles);
+       } catch (IOException e) {
+           Log.e(TAG, "Error writing items", e);
+       }
+    }
 }
