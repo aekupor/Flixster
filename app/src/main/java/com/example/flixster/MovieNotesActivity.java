@@ -30,6 +30,7 @@ public class MovieNotesActivity extends AppCompatActivity {
     Button saveBtn;
     RecyclerView rvItems;
     List<String> items;
+    NoteAdapter noteAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,19 @@ public class MovieNotesActivity extends AppCompatActivity {
 
         loadItems();
 
-        final NoteAdapter noteAdapter = new NoteAdapter(items);
+        NoteAdapter.OnLongClickListener onLongClickListener = new NoteAdapter.OnLongClickListener() {
+            @Override
+            public void onItemLongClicked(int position) {
+                //delete the item from the model
+                items.remove(position);
+                //notify the adapter
+                noteAdapter.notifyItemRemoved(position);
+                Toast.makeText(getApplicationContext(), "Item was removed", Toast.LENGTH_SHORT).show();
+                saveItems();
+            }
+        };
+        
+        noteAdapter = new NoteAdapter(items, onLongClickListener);
         rvItems.setAdapter(noteAdapter);
         rvItems.setLayoutManager(new LinearLayoutManager(this));
 
