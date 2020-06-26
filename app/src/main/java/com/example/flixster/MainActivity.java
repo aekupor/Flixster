@@ -21,9 +21,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import okhttp3.Headers;
+
+class RatingComparator implements Comparator<Movie> {
+    public int compare(Movie m1, Movie m2) {
+        return m2.getVoteAverage().compareTo(m1.getVoteAverage());
+    }
+}
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results: " + results.toString());
                     movies.addAll(Movie.fromJsonArray(results));
+                    Collections.sort(movies, new RatingComparator());
                     movieAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Movies:" + movies.size());
                 } catch (JSONException e) {
