@@ -40,4 +40,13 @@
         android:layout_alignParentBottom="true"
         android:text="Save" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvView"
+        android:layout_width="match_parent"
+        android:layout_height="571dp"
+        android:layout_above="@+id/addItem"
+        android:layout_below="@+id/tvHeading"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp" />
+
 </RelativeLayout>
