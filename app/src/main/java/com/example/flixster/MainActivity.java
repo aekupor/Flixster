@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
@@ -16,16 +15,11 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.flixster.adapters.MovieAdapter;
 import com.example.flixster.databinding.ActivityMainBinding;
 import com.example.flixster.models.Movie;
-import com.facebook.stetho.common.ArrayListAccumulator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.parceler.Parcels;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -22,7 +22,6 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.flixster.MovieDetailsActivity;
 import com.example.flixster.R;
-import com.example.flixster.databinding.ActivityMovieDetailsBinding;
 import com.example.flixster.databinding.ItemMovieBinding;
 import com.example.flixster.models.Movie;
 

@@ -1,11 +1,8 @@
 package com.example.flixster;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,20 +13,10 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
-import com.example.flixster.databinding.ActivityMainBinding;
 import com.example.flixster.databinding.ActivityMovieDetailsBinding;
 import com.example.flixster.models.Movie;
 
 import org.parceler.Parcels;
-
-import java.util.List;
-import java.util.Random;
-
-import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieDetailsActivity extends AppCompatActivity {
     public static final String KEY_ITEM_ID = "movie_id";
